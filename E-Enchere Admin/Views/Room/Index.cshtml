@@ -27,7 +27,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">#</th>
-                                    <th>Room</th>
+                                    <th  class="text-center"> Room</th>
                                     <th class="text-center">NomRoom</th>
                                     <th class="text-center">NombreDeParticipants</th>
                                     <th class="text-center">MontantEnchére</th>
@@ -53,19 +53,17 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="widget-content-left flex2">
-                                                    <div class="widget-heading"> @room.NomRoom</div>
-                                                    <div class="widget-subheading opacity-7"> ***** </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </td>
-                                   
 
-                                    <td class="text-center"> @room.NombreParticipants"</td>
+                                    <td class="widget-heading"> @room.NomRoom</td>
+                                    <td class="text-center"> @room.NombreParticipants</td>
                                     <td class="text-center">@room.MontantEnchére</td>
                                     <td class="text-center">@room.FraisRoom</td>
                                     <td class="text-center">@room.MontantLancement</td>
+                                    <td></td>
                                     @*<td class="text-center">@Html.DisplayFor(room => room.Article.Nom)</td>*@
 
                                     <td class="text-center">
