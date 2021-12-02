@@ -15,7 +15,6 @@ namespace E_Enchere_Admin.Controllers
         {
             _db = db;
         }
-
         public IActionResult Index()
         {
             IEnumerable<Article> Objectlist = _db.Articles;
@@ -94,9 +93,6 @@ namespace E_Enchere_Admin.Controllers
             }
             return View(obj);
         }
-
-
-
 
     }
 }
