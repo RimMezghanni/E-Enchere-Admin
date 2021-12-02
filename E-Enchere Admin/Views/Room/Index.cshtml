@@ -63,14 +63,14 @@
                                     <td class="text-center">@room.MontantEnchére</td>
                                     <td class="text-center">@room.FraisRoom</td>
                                     <td class="text-center">@room.MontantLancement</td>
-                                    <td></td>
-                                    @*<td class="text-center">@Html.DisplayFor(room => room.Article.Nom)</td>*@
+                                   
+                                   <td class="text-center">@room.IdArticle</td>
 
                                     <td class="text-center">
                                         <a asp-controller="Room" asp-action="Details" asp-route-id="@room.IdRoom"
                                            class="btn btn-primary btn-sm">Détails</a>
                                         <a asp-action="Update" asp-controller="Room" class="btn btn-primary btn-sm" asp-route-id="@room.IdRoom">Editer</a>
-                                        <a asp-action="DeleteRoom" asp-controller="Room" class="btn btn-danger btn-sm" asp-route-id="@room.IdRoom">Supprimer</a>
+                                        <a asp-action="Delete" asp-controller="Room" class="btn btn-danger btn-sm" asp-route-id="@room.IdRoom">Supprimer</a>
                                     </td>
                                 </tr>
                                   }
