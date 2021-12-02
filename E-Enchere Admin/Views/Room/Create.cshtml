@@ -1,0 +1,78 @@
+﻿<!-- les info entreés selon le model -->
+@model E_Enchere_Admin.Models.Room
+<h1>Créer une Room</h1>
+<h4>Nouveau Room</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <div class="tab-content">
+
+            <form enctype="multipart/form-data" asp-action="Create">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="position-relative form-group">
+                    <label asp-for="NomRoom" class="control-label"></label>
+                    <input asp-for="NomRoom" class="form-control" />
+                    <span asp-validation-for="NomRoom" class="text-danger"></span>
+                </div>
+
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="position-relative form-group">
+                    <label asp-for="NombreParticipants" class="control-label"></label>
+                    <input asp-for="NombreParticipants" class="form-control" />
+                    <span asp-validation-for="NombreParticipants" class="text-danger"></span>
+                </div>
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="position-relative form-group">
+                    <label asp-for="MontantEnchére" class="control-label"></label>
+                    <input asp-for="MontantEnchére" class="form-control" />
+                    <span asp-validation-for="MontantEnchére" class="text-danger"></span>
+                </div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="position-relative form-group">
+                    <label asp-for="FraisRoom" class="control-label"></label>
+                    <input asp-for="FraisRoom" class="form-control" />
+                    <span asp-validation-for="FraisRoom" class="text-danger"></span>
+                </div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="position-relative form-group">
+                    <label asp-for="MontantLancement" class="control-label"></label>
+                    <input asp-for="MontantLancement" class="form-control" />
+                    <span asp-validation-for="MontantLancement" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <select asp-for="IdArticle" asp-items="@ViewBag.TypeDropDown" class="form-control">
+
+                        <option selected>--Select Expense Type--</option>
+                    </select>
+                    <span asp-validation-for="IdArticle"></span>
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button width="30%" class="btn btn-info" asp-action="Index">Back to List</button>
+</div>
+
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+    });
+    </script>
+}

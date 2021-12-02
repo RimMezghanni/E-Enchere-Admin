@@ -1,0 +1,97 @@
+﻿@model IEnumerable<E_Enchere_Admin.Models.Room>
+<!-- fetch data from enumerate item objectlist -->
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary"> Rooms </h2>
+        </div>
+        <div class="col-6 text-rigth">
+            <a asp-controller="Room" asp-action="Create" class="btn btn-primary"> Create new room </a>
+        </div>
+    </div>
+    <br />
+
+    @if (Model.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-card mb-3 card">
+                    <div class="card-header">
+                        Liste des Rooms
+                        <div class="btn-actions-pane-right">
+
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th>Room</th>
+                                    <th class="text-center">NomRoom</th>
+                                    <th class="text-center">NombreDeParticipants</th>
+                                    <th class="text-center">MontantEnchére</th>
+                                    <th class="text-center">FraisRoom</th>
+                                    <th class="text-center">MontantLancement</th>
+                                    <th class="text-center">Article</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var room in Model)
+                                {
+                                    
+
+                                <tr>
+                                    <td class="text-center text-muted">@room.IdRoom</td>
+
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading"> @room.NomRoom</div>
+                                                    <div class="widget-subheading opacity-7"> ***** </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                   
+
+                                    <td class="text-center"> @room.NombreParticipants"</td>
+                                    <td class="text-center">@room.MontantEnchére</td>
+                                    <td class="text-center">@room.FraisRoom</td>
+                                    <td class="text-center">@room.MontantLancement</td>
+                                    @*<td class="text-center">@Html.DisplayFor(room => room.Article.Nom)</td>*@
+
+                                    <td class="text-center">
+                                        <a asp-controller="Room" asp-action="Details" asp-route-id="@room.IdRoom"
+                                           class="btn btn-primary btn-sm">Détails</a>
+                                        <a asp-action="Update" asp-controller="Room" class="btn btn-primary btn-sm" asp-route-id="@room.IdRoom">Editer</a>
+                                        <a asp-action="DeleteRoom" asp-controller="Room" class="btn btn-danger btn-sm" asp-route-id="@room.IdRoom">Supprimer</a>
+                                    </td>
+                                </tr>
+                                  }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-block text-center card-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+    else
+    {
+        <p> No articles created yet</p>
+    }
+</div>
+
+
