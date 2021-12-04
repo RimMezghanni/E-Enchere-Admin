@@ -2,32 +2,29 @@
 
 @{ ViewData["Title"] = "Delete"; }
 
-<h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Article?</h3>
 <div>
-    <h4>Article</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Nom)
+            @Model.Nom
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+
 
         <dd class="col-sm-10">
-           <img src="@Html.DisplayFor(model => model.Photo)"  height="60" width="50" />
+            <img src="@Model.Photo" height="60" width="50" />
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Prix)
+        <dt class="col-sm-2"> Prix:</dt>
+         <dt class="col-sm-2">
+            @Model.Prix
         </dt>
 
     </dl>
 
-    <form  asp-controller="Article" asp-action="DeleteArticle">
+    <form asp-action="DeleteArticle" method="post">
         <input type="hidden" asp-for="IdArticle" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a class="btn btn-info" asp-controller="Article" asp-action="Index">Back to List</a>
     </form>
 </div>

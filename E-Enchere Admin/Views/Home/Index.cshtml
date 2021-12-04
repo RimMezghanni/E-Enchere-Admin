@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+﻿<div class="card-header d-block d-md-flex">
+        <h5 class="mb-0">Actions</h5>
+        <p class="ml-auto mb-0">Vous Pouvez :<i class="icon-bulb"></i></p>
+    </div>
+    <div class="d-md-flex row m-0 quick-action-btns" role="group" aria-label="Quick action buttons">
+        <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+            <button type="button" class="btn px-0" asp-controller="Room" asp-action="Create"> <i class="icon-user mr-2"></i> Ajouter Rooms</button>
+        </div>
+        <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+            <button type="button" class="btn px-0"  asp-controller="Room" asp-action="Index"><i class="icon-docs mr-2"></i> Liste Rooms</button>
+        </div>
+        <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+            <button type="button" class="btn px-0" asp-controller="Article" asp-action="Create"><i class="icon-folder mr-2"></i> Ajouter Article</button>
+        </div>
+        <div class="col-sm-6 col-md-3 p-3 text-center btn-wrapper">
+            <button type="button" class="btn px-0" ><i class="icon-book-open mr-2" asp-controller="Room" asp-action="Index"></i>Liste Articles</button>
+        </div>
+    </div>

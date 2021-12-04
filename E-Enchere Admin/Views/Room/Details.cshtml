@@ -1,0 +1,27 @@
+﻿@model E_Enchere_Admin.Models.Room
+
+@{ ViewData["Title"] = ""; 
+    }
+
+<div class="tab-content">
+    <div class="tab-pane tabs-animation fade show active" id="tab-content-1" role="tabpanel">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="main-card mb-3 card">
+                    <div class="card-body">
+                        <div class="card-body text-left">
+                            <img src="@Html.DisplayFor(model => model.IdArticleNavigation.Photo)" asp-append-version="true" height="100" width="100" />
+                        </div><h5 class="card-title">
+                            Room:          @Html.DisplayFor(model => model.NomRoom)
+                        </h5>
+                        <p> Nom Article :  @Html.DisplayFor(model => model.IdArticleNavigation.Nom)</p>
+                        <p> Nombre de Participants :       @Html.DisplayFor(model => model.NombreParticipants)</p>
+                    </div>
+                    <a class="btn btn-success btn-sm" asp-action="Update" asp-route-id="@Model.IdRoom">Edit</a>
+                    <a class="btn btn-primary btn-sm" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

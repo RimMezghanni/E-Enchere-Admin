@@ -66,9 +66,9 @@ namespace E_Enchere_Admin.Controllers
         }
         //post delete
         [HttpPost]
-        public IActionResult DeleteRoom(int? Id)
+        public IActionResult DeleteRoom(int? IdRoom)
         {
-            var obj = _db.Rooms.Find(Id);
+            var obj = _db.Rooms.Find(IdRoom);
             if (obj == null)
             {
                 return NotFound();
@@ -88,6 +88,7 @@ namespace E_Enchere_Admin.Controllers
             }
             var obj = _db.Rooms.Find(Id);
             if (obj == null) { return NotFound(); }
+            //Article article = _db.Articles.Find(obj.IdArticle);
             return View(obj);
 
 
@@ -107,6 +108,18 @@ namespace E_Enchere_Admin.Controllers
             return View(obj);
 
 
+        }
+
+        public ActionResult Details(int id)
+        {
+            var room = _db.Rooms.Find(id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+            Article article = _db.Articles.Find(room.IdArticle);
+
+            return View(room);
         }
     }
 }

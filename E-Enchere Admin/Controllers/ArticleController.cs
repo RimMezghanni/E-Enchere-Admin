@@ -52,9 +52,10 @@ namespace E_Enchere_Admin.Controllers
         }
         //Post Delete 
         [HttpPost]
-        public IActionResult DeleteArticle(int? id)
+        [ValidateAntiForgeryToken]  
+        public IActionResult DeleteArticle(int? IdArticle)  
         {
-            var obj = _db.Articles.Find(id);
+            var obj = _db.Articles.Find(IdArticle);
             if (obj == null)
             {
                 return NotFound();
@@ -62,7 +63,7 @@ namespace E_Enchere_Admin.Controllers
             _db.Articles.Remove(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
-        }
+         }
 
 
 

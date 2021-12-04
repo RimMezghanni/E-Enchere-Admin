@@ -12,7 +12,7 @@ namespace E_Enchere_Admin.Models
             Rooms = new HashSet<Room>();
         }
 
-        public int IdArticle { get; set; }
+        public int IdArticle {get; set;}
         public string Nom { get; set; }
         public string Description { get; set; }
         public int Prix { get; set; }
