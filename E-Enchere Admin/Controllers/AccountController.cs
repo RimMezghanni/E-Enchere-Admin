@@ -55,28 +55,21 @@ namespace E_Enchere_Admin.Controllers
 
             else
             {
-                var i = 0;
-                do
+                foreach (Admin element in allAdmins)
                 {
-                    if (username == allAdmins[i].PrénomAdmin && password == allAdmins[i].MotDePasse)
+                    if (username == element.PrénomAdmin && password == element.MotDePasse)
                     {
                         identity = new ClaimsIdentity(new[]{
                             new Claim(ClaimTypes.Name,username),
                              new Claim(ClaimTypes.PrimarySid,"1"),
-                            new Claim(ClaimTypes.Role,"Admin")
+                            new Claim(ClaimTypes.Role,"User")
                             }, CookieAuthenticationDefaults.AuthenticationScheme);
                         isAuthenticate = true;
                         HttpContext.Session.SetString("username", username);
                         break;
                     }
-                    
 
-
-                    i++;
-
-
-                } while (username == allAdmins[i].PrénomAdmin && password == allAdmins[i].MotDePasse);
-
+                }
 
             }
 
