@@ -45,7 +45,7 @@
             <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
                 <div class="navbar-brand-wrapper d-flex align-items-center">
                     <a class="navbar-brand brand-logo" asp-controller="Room" asp-action="index">
-                        <img src="~/images/logo.svg" alt="logo" class="logo-dark" />
+                        <img src="~/images/logo.jpeg" style="width:100% ; height:100%" alt="logo" class="logo-dark" />
                     </a>
                     <a class="navbar-brand brand-logo-mini" href="index.html"><img src="~/images/logo-mini.svg" alt="logo" /></a>
                 </div>
@@ -139,10 +139,11 @@
                                 <a class="dropdown-item"><i class="dropdown-item-icon icon-power text-primary"></i>Sign Out</a>
                             </div>
                         </li>
-                        @if (TempData["data"] != null)
-                        {
+                        @{ if (TempData["data"] != null)
+                            {
                             <li class="nav-item nav-category"><a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a></li>
-}
+                                } TempData.Keep("data");
+                            }
                     </ul>
                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                         <span class="icon-menu"></span>
@@ -172,12 +173,16 @@
                         </li>
 
 
-                        @if (TempData["data"] != null) {
-                        <li class="nav-item nav-category"><a class="nav-link" asp-controller="Room" asp-action="index">Dashboard</a></li>
-                        <li class="nav-item nav-category"><a class="nav-link" asp-controller="Room" asp-action="index">Rooms</a></li>
+                        @{ if (TempData["data"] != null)
+                            {
+                                <li class="nav-item nav-category"><a class="nav-link" asp-controller="Room" asp-action="index">Dashboard</a></li>
+                                <li class="nav-item nav-category"><a class="nav-link" asp-controller="Room" asp-action="index">Rooms</a></li>
 
 
-                        <li class="nav-item nav-category"><a class="nav-link" asp-controller="article" asp-action="index">Articles</a></li>}
+                                <li class="nav-item nav-category"><a class="nav-link" asp-controller="article" asp-action="index">Articles</a></li>
+                            }
+                            TempData.Keep("data");
+                        }
 
 
 

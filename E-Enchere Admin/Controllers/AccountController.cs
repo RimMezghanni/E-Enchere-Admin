@@ -58,7 +58,7 @@ namespace E_Enchere_Admin.Controllers
                 var i = 0;
                 do
                 {
-                    if (username == allAdmins[i].NomAdmin && password == allAdmins[i].MotDePasse)
+                    if (username == allAdmins[i].PrénomAdmin && password == allAdmins[i].MotDePasse)
                     {
                         identity = new ClaimsIdentity(new[]{
                             new Claim(ClaimTypes.Name,username),
@@ -75,7 +75,7 @@ namespace E_Enchere_Admin.Controllers
                     i++;
 
 
-                } while (username == allAdmins[i].NomAdmin && password == allAdmins[i].MotDePasse);
+                } while (username == allAdmins[i].PrénomAdmin && password == allAdmins[i].MotDePasse);
 
 
             }
@@ -106,7 +106,8 @@ namespace E_Enchere_Admin.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
-            return RedirectToAction("Account", "Login");
+            TempData["data"] = null;
+            return View();
         }
 
     }
