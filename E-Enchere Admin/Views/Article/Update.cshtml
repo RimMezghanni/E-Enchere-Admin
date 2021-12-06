@@ -41,8 +41,8 @@
             <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
                 <div class="custom-file">
-                    <input asp-for="Photo" class="custom-file-input form-control">
-                    <label class="custom-file-label">cliquer ici pour changer la photo</label>
+                    <label asp-for="Photo" for="myfile">Choisir une photo:</label><br><br>
+                    <input asp-for="Photo" type="file" id="myfile" name="myfile">
                 </div>
             </div>
         </div>
